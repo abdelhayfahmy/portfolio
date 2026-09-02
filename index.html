@@ -7,21 +7,66 @@
     <style>
         /* Premium Corporate Color Palette */
         :root {
-            --bg-main: #0B1120;         /* Deep Executive Navy */
-            --bg-card: #151E2E;         /* Elevated Surface */
-            --bg-card-light: #1E293B;   /* Lighter Surface for contrast */
-            --accent-primary: #3B82F6;  /* Trust Blue */
-            --accent-glow: #60A5FA;     /* Tech Blue for highlights */
-            --text-main: #F8FAFC;       /* Crisp White */
-            --text-muted: #94A3B8;      /* Professional Grey */
-            --border-color: #2A3649;    /* Subtle dividers */
+            --bg-main: #0B1120;         
+            --bg-card: #151E2E;         
+            --bg-card-light: #1E293B;   
+            --accent-primary: #3B82F6;  
+            --accent-glow: #60A5FA;     
+            --text-main: #F8FAFC;       
+            --text-muted: #94A3B8;      
+            --border-color: #2A3649;    
         }
         
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-        body { background-color: var(--bg-main); color: var(--text-main); line-height: 1.7; }
         
+        /* Smooth Scrolling */
+        html { scroll-behavior: smooth; }
+        
+        body { background-color: var(--bg-main); color: var(--text-main); line-height: 1.7; padding-top: 70px; }
+        
+        /* Sticky Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(11, 17, 32, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.2rem 0;
+        }
+        .nav-container {
+            max-width: 1150px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-logo {
+            color: var(--text-main);
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+        .nav-logo span { color: var(--accent-glow); }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover { color: var(--accent-glow); }
+
         .container { max-width: 1150px; margin: 0 auto; padding: 0 2rem; }
-        section { padding: 5rem 0; border-bottom: 1px solid var(--border-color); }
+        section { padding: 5rem 0; border-bottom: 1px solid var(--border-color); scroll-margin-top: 80px; }
         
         /* Typography */
         .section-title { font-size: 2.4rem; color: var(--text-main); margin-bottom: 2rem; font-weight: 700; }
@@ -29,14 +74,14 @@
         .section-subtitle { color: var(--text-muted); margin-bottom: 2.5rem; font-size: 1rem; }
         
         /* Hero Section */
-        .hero { display: flex; align-items: center; gap: 4rem; padding: 7rem 0; border-bottom: 1px solid var(--border-color); }
+        .hero { display: flex; align-items: center; gap: 4rem; padding: 6rem 0; border-bottom: 1px solid var(--border-color); }
         .hero-img { width: 260px; height: 260px; border-radius: 50%; object-fit: cover; border: 4px solid var(--bg-card); box-shadow: 0 0 20px rgba(59, 130, 246, 0.2); }
         .hero-content h1 { font-size: 3.8rem; margin-bottom: 0.5rem; color: var(--text-main); font-weight: 800; letter-spacing: -1px; }
         .hero-content h2 { font-size: 1.5rem; color: var(--accent-glow); margin-bottom: 1.5rem; font-weight: 500; }
         .hero-content p { color: var(--text-muted); font-size: 1.15rem; margin-bottom: 2.5rem; line-height: 1.8; max-width: 90%; }
         
         /* Grid Layouts */
-        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.8rem; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.8rem; }
         .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem; }
         
         /* Standard Cards */
@@ -82,14 +127,30 @@
             .hero { flex-direction: column; text-align: center; padding: 4rem 0; gap: 2rem; }
             .hero-content p { max-width: 100%; }
             .journey-grid-top { grid-template-columns: 1fr; }
+            .nav-links { display: none; } /* Hide text links on mobile for cleaner look */
         }
     </style>
 </head>
 <body>
 
+    <!-- Header Navigation Bar -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="nav-logo">AF<span>Mastery</span></a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#impact">ROI & Impact</a>
+                <a href="#skills">Competencies</a>
+                <a href="#portfolio">Academy Portfolio</a>
+                <a href="#journey">Journey</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
     <div class="container">
         <!-- 1. Hero & Summary -->
-        <div class="hero">
+        <div id="about" class="hero">
             <img src="https://github.com/abdelhayfahmy.png" alt="Abdelhay Fahmy" class="hero-img">
             <div class="hero-content">
                 <h1>Abdelhay Fahmy</h1>
@@ -97,14 +158,13 @@
                 <p>Dynamic Senior L&D Leader with 12+ years driving operational readiness and performance optimization in high-volume global BPO environments. Specialized in integrating Generative AI and digital learning tools to accelerate time-to-proficiency. Successfully reduced total training duration by 50% through AI-driven micro-learning, while sustaining a 97% pass rate and 80% throughput for 250+ monthly trainees. Expert in aligning training outcomes with core business metrics (CSAT, AHT, ROI) to maximize profitability.</p>
                 <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
                     <a href="#contact" class="btn btn-primary">Let's Connect</a>
-                    <!-- التحميل المباشر للسيرة الذاتية -->
                     <a href="ABDELHAY_FAHMY_CV.pdf" class="btn" download>Download CV</a>
                 </div>
             </div>
         </div>
 
         <!-- 2. Impact & ROI Highlights -->
-        <section>
+        <section id="impact">
             <h2 class="section-title">Impact & <span>ROI Highlights</span></h2>
             <div class="grid-2">
                 <div class="card">
@@ -127,7 +187,7 @@
         </section>
 
         <!-- 3. Core Competencies & Tech Stack -->
-        <section>
+        <section id="skills">
             <h2 class="section-title">Core Competencies & <span>Tech Stack</span></h2>
             <div class="grid-2">
                 <div class="light-card">
@@ -151,15 +211,14 @@
             </div>
         </section>
 
-        <!-- 4. Portfolio Showcase (With Image Placeholders) -->
-        <section>
+        <!-- 4. Portfolio Showcase -->
+        <section id="portfolio">
             <h2 class="section-title" style="text-align: center;">Portfolio Showcase | <span>AF Mastery Academy</span></h2>
             <p class="section-subtitle" style="text-align: center;">* Registration in AF Mastery Academy is required to access the full interactive modules.</p>
             
-            <div class="grid-4">
+            <div class="grid-3">
                 <!-- Project 1 -->
                 <div class="portfolio-card">
-                    <!-- اسم الصورة لرفعها على جيتهاب: sales-cover.jpg -->
                     <img src="sales-cover.jpg" alt="Sales Track Cover" class="portfolio-img" onerror="this.src='https://via.placeholder.com/400x200/1E293B/60A5FA?text=Sales+Track'">
                     <div class="portfolio-content">
                         <div>
@@ -173,7 +232,6 @@
 
                 <!-- Project 2 -->
                 <div class="portfolio-card">
-                    <!-- اسم الصورة لرفعها على جيتهاب: leadership-cover.jpg -->
                     <img src="leadership-cover.jpg" alt="Leadership Track Cover" class="portfolio-img" onerror="this.src='https://via.placeholder.com/400x200/1E293B/60A5FA?text=Leadership+Track'">
                     <div class="portfolio-content">
                         <div>
@@ -187,7 +245,6 @@
 
                 <!-- Project 3 -->
                 <div class="portfolio-card">
-                    <!-- اسم الصورة لرفعها على جيتهاب: ai-cover.jpg -->
                     <img src="ai-cover.jpg" alt="AI Track Cover" class="portfolio-img" onerror="this.src='https://via.placeholder.com/400x200/1E293B/60A5FA?text=AI+Innovation'">
                     <div class="portfolio-content">
                         <div>
@@ -201,7 +258,6 @@
 
                 <!-- Project 4 (YouTube) -->
                 <div class="portfolio-card">
-                    <!-- اسم الصورة لرفعها على جيتهاب: youtube-cover.jpg -->
                     <img src="youtube-cover.jpg" alt="YouTube Channel Cover" class="portfolio-img" onerror="this.src='https://via.placeholder.com/400x200/1E293B/60A5FA?text=YouTube+Channel'">
                     <div class="portfolio-content">
                         <div>
@@ -212,11 +268,24 @@
                         <a href="http://www.youtube.com/@SeerahMoments" target="_blank" class="btn" style="width: 100%;">Visit Channel</a>
                     </div>
                 </div>
+
+                <!-- Project 5 (Strategic L&D Initiative) -->
+                <div class="portfolio-card">
+                    <img src="deep-dive-cover.jpg" alt="Strategic L&D Initiative" class="portfolio-img" onerror="this.src='https://via.placeholder.com/400x200/1E293B/60A5FA?text=Strategic+Initiative'">
+                    <div class="portfolio-content">
+                        <div>
+                            <h3>Strategic L&D Initiative</h3>
+                            <p style="color: #fff; font-weight: 500; margin-bottom: 0.5rem;">L&D Deep Dive</p>
+                            <p>A specialized platform dedicated to sharing modern training methodologies, micro-learning interventions, and AI integration.</p>
+                        </div>
+                        <a href="https://www.linkedin.com/company/deep-dive-learning-podcast/" target="_blank" class="btn" style="width: 100%;">Explore & Follow</a>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- 5. Professional Journey -->
-        <section>
+        <section id="journey">
             <h2 class="section-title">Professional <span>Journey</span></h2>
             
             <div class="journey-grid-top">
