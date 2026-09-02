@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdelhay Fahmy | Senior L&D Leader & EdTech Architect</title>
+    <style>
+        /* Premium Corporate Color Palette */
+        :root {
+            --bg-main: #0B1120;         /* Deep Executive Navy */
+            --bg-card: #151E2E;         /* Elevated Surface */
+            --bg-card-light: #1E293B;   /* Lighter Surface for contrast */
+            --accent-primary: #3B82F6;  /* Trust Blue */
+            --accent-glow: #60A5FA;     /* Tech Blue for highlights */
+            --text-main: #F8FAFC;       /* Crisp White */
+            --text-muted: #94A3B8;      /* Professional Grey */
+            --border-color: #2A3649;    /* Subtle dividers */
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        body { background-color: var(--bg-main); color: var(--text-main); line-height: 1.7; }
+        
+        .container { max-width: 1150px; margin: 0 auto; padding: 0 2rem; }
+        section { padding: 5rem 0; border-bottom: 1px solid var(--border-color); }
+        
+        /* Typography */
+        .section-title { font-size: 2.4rem; color: var(--text-main); margin-bottom: 2rem; font-weight: 700; }
+        .section-title span { color: var(--accent-glow); }
+        .section-subtitle { color: var(--text-muted); margin-bottom: 2.5rem; font-size: 1rem; }
+        
+        /* Hero Section */
+        .hero { display: flex; align-items: center; gap: 4rem; padding: 7rem 0; border-bottom: 1px solid var(--border-color); }
+        .hero-img { width: 260px; height: 260px; border-radius: 50%; object-fit: cover; border: 4px solid var(--bg-card); box-shadow: 0 0 20px rgba(59, 130, 246, 0.2); }
+        .hero-content h1 { font-size: 3.8rem; margin-bottom: 0.5rem; color: var(--text-main); font-weight: 800; letter-spacing: -1px; }
+        .hero-content h2 { font-size: 1.5rem; color: var(--accent-glow); margin-bottom: 1.5rem; font-weight: 500; }
+        .hero-content p { color: var(--text-muted); font-size: 1.15rem; margin-bottom: 2.5rem; line-height: 1.8; max-width: 90%; }
+        
+        /* Grid Layouts */
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.8rem; }
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem; }
+        
+        /* Standard Cards */
+        .card { background: var(--bg-card); padding: 2.5rem; border-radius: 12px; border-left: 4px solid var(--accent-primary); transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 12px 24px rgba(0,0,0,0.2); border-color: var(--accent-glow); }
+        .card h3 { color: var(--text-main); margin-bottom: 1rem; font-size: 1.4rem; font-weight: 600; }
+        .card p { color: var(--text-muted); font-size: 1.05rem; }
+        .card strong { color: var(--text-main); font-weight: 600; }
+        
+        /* Portfolio Cards (With Images) */
+        .portfolio-card { background: var(--bg-card); border-radius: 12px; border: 1px solid var(--border-color); transition: all 0.3s ease; overflow: hidden; display: flex; flex-direction: column; }
+        .portfolio-card:hover { border-color: var(--accent-primary); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .portfolio-img { width: 100%; height: 170px; object-fit: cover; background: #000; border-bottom: 1px solid var(--border-color); }
+        .portfolio-content { padding: 1.8rem; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between; }
+        .portfolio-content h3 { color: var(--accent-glow); margin-bottom: 0.5rem; font-size: 1.25rem; font-weight: 600; }
+        .portfolio-content p { color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem; line-height: 1.6; }
+        
+        /* Light/Contrasting Competency Cards */
+        .light-card { background: var(--bg-card-light); padding: 2.5rem; border-radius: 12px; border: 1px solid var(--border-color); }
+        .light-card h3 { color: var(--text-main); font-size: 1.5rem; margin-bottom: 1.5rem; font-weight: 600; border-bottom: 2px solid var(--border-color); padding-bottom: 1rem; }
+        .light-card ul { list-style-type: none; }
+        .light-card li { margin-bottom: 1rem; font-size: 1.1rem; color: var(--text-muted); display: flex; align-items: center; }
+        .light-card li::before { content: '▹'; color: var(--accent-primary); margin-right: 10px; font-size: 1.2rem; }
+
+        /* Journey Layout */
+        .journey-grid-top { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 1.5rem; }
+        .journey-grid-bottom { display: grid; grid-template-columns: 1fr; }
+        .journey-card { background: var(--bg-card); padding: 2rem; border-radius: 12px; text-align: center; border: 1px solid var(--border-color); transition: 0.3s; }
+        .journey-card:hover { background: var(--bg-card-light); }
+        .journey-card h4 { color: var(--text-main); font-size: 1.15rem; margin-bottom: 1rem; font-weight: 600; }
+        .journey-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
+
+        /* Buttons & Links */
+        .btn { display: inline-block; padding: 0.85rem 1.8rem; background: transparent; color: var(--accent-glow); text-decoration: none; border: 1px solid var(--accent-primary); border-radius: 6px; transition: all 0.3s ease; text-align: center; font-weight: 600; font-size: 1rem; }
+        .btn:hover { background: rgba(59, 130, 246, 0.1); transform: translateY(-2px); }
+        .btn-primary { background: var(--accent-primary); color: #fff; border: 1px solid var(--accent-primary); }
+        .btn-primary:hover { background: #2563EB; border-color: #2563EB; color: #fff; }
+        
+        /* Contact Flex */
+        .contact-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 2rem; }
+
+        @media (max-width: 900px) {
+            .hero { flex-direction: column; text-align: center; padding: 4rem 0; gap: 2rem; }
+            .hero-content p { max-width: 100%; }
+            .journey-grid-top { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- 1. Hero & Summary -->
+        <div class="hero">
+            <img src="https://github.com/abdelhayfahmy.png" alt="Abdelhay Fahmy" class="hero-img">
+            <div class="hero-content">
+                <h1>Abdelhay Fahmy</h1>
+                <h2>Senior L&D Leader | BPO Operations & AI-Driven EdTech</h2>
+                <p>Dynamic Senior L&D Leader with 12+ years driving operational readiness and performance optimization in high-volume global BPO environments. Specialized in integrating Generative AI and digital learning tools to accelerate time-to-proficiency. Successfully reduced total training duration by 50% through AI-driven micro-learning, while sustaining a 97% pass rate and 80% throughput for 250+ monthly trainees. Expert in aligning training outcomes with core business metrics (CSAT, AHT, ROI) to maximize profitability.</p>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <a href="#contact" class="btn btn-primary">Let's Connect</a>
+                    <!-- التحميل المباشر للسيرة الذاتية -->
+                    <a href="ABDELHAY_FAHMY_CV.pdf" class="btn" download>Download CV</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Impact & ROI Highlights -->
+        <section>
+            <h2 class="section-title">Impact & <span>ROI Highlights</span></h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h3>High-Volume Success</h3>
+                    <p><strong>Achieved a 97% training pass rate with an 80% throughput rate</strong> across complex BPO accounts over two years.</p>
+                </div>
+                <div class="card">
+                    <h3>AI Integration & Efficiency</h3>
+                    <p><strong>Reduced total training duration by 50%</strong> by integrating AI-driven digital refreshers through a micro-learning approach.</p>
+                </div>
+                <div class="card">
+                    <h3>Operational Readiness</h3>
+                    <p><strong>Managed training operations for 250+ monthly trainees</strong> across global accounts, ensuring seamless onboarding and certification.</p>
+                </div>
+                <div class="card">
+                    <h3>Digital Transformation</h3>
+                    <p><strong>Implemented and scaled comprehensive digital Knowledge Bases</strong> using Zoho Learn.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Core Competencies & Tech Stack -->
+        <section>
+            <h2 class="section-title">Core Competencies & <span>Tech Stack</span></h2>
+            <div class="grid-2">
+                <div class="light-card">
+                    <h3>L&D Leadership</h3>
+                    <ul>
+                        <li>Training Delivery</li>
+                        <li>Operational Readiness</li>
+                        <li>ROI Reporting</li>
+                        <li>Problem Solving</li>
+                        <li>Curriculum Design</li>
+                    </ul>
+                </div>
+                <div class="light-card">
+                    <h3>AI & Technical Skills</h3>
+                    <ul>
+                        <li>Generative AI Video/Audio Production</li>
+                        <li>Prompt Engineering</li>
+                        <li>LMS Administration</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Portfolio Showcase (With Image Placeholders) -->
+        <section>
+            <h2 class="section-title" style="text-align: center;">Portfolio Showcase | <span>AF Mastery Academy</span></h2>
+            <p class="section-subtitle" style="text-align: center;">* Registration in AF Mastery Academy is required to access the full interactive modules.</p>
+            
+            <div class="grid-4">
+                <!-- Project 1 -->
+                <div class="portfolio-card">
+                    <!-- اسم الصورة لرفعها على جيتهاب: sales-cover.jpg -->
+                    <img src="sales-cover.jpg" alt="Sales Track Cover" class="portfolio-img" onerror="this.src='https://via.placeholder.com/400x200/1E293B/60A5FA?text=Sales+Track'">
+                    <div class="portfolio-content">
+                        <div>
+                            <h3>Sales Excellence Track</h3>
+                            <p style="color: #fff; font-weight: 500; margin-bottom: 0.5rem;">CLOSE Sales Mastery</p>
+                            <p>High-conversion sales psychology & advanced objection handling simulation.</p>
+                        </div>
+                        <a href="https://abdelhayfahmy.github.io/AFMasteryAcademy/" target="_blank" class="btn" style="width: 100%;">Register & Access</a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="portfolio-card">
+                    <!-- اسم الصورة لرفعها على جيتهاب: leadership-cover.jpg -->
+                    <img src="leadership-cover.jpg" alt="Leadership Track Cover" class="portfolio-img" onerror="this.src='https://via.placeholder.com/400x200/1E293B/60A5FA?text=Leadership+Track'">
+                    <div class="portfolio-content">
+                        <div>
+                            <h3>Leadership Track</h3>
+                            <p style="color: #fff; font-weight: 500; margin-bottom: 0.5rem;">Problem-Solving</p>
+                            <p>Structured decision-making and operational bottleneck diagnostics.</p>
+                        </div>
+                        <a href="https://abdelhayfahmy.github.io/AFMasteryAcademy/" target="_blank" class="btn" style="width: 100%;">Register & Access</a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="portfolio-card">
+                    <!-- اسم الصورة لرفعها على جيتهاب: ai-cover.jpg -->
+                    <img src="ai-cover.jpg" alt="AI Track Cover" class="portfolio-img" onerror="this.src='https://via.placeholder.com/400x200/1E293B/60A5FA?text=AI+Innovation'">
+                    <div class="portfolio-content">
+                        <div>
+                            <h3>AI Innovation Track</h3>
+                            <p style="color: #fff; font-weight: 500; margin-bottom: 0.5rem;">Interactive Pharma AI</p>
+                            <p>Specialized medical pitching and AI-simulated HCP interactions.</p>
+                        </div>
+                        <a href="https://abdelhayfahmy.github.io/AFMasteryAcademy/" target="_blank" class="btn" style="width: 100%;">Register & Access</a>
+                    </div>
+                </div>
+
+                <!-- Project 4 (YouTube) -->
+                <div class="portfolio-card">
+                    <!-- اسم الصورة لرفعها على جيتهاب: youtube-cover.jpg -->
+                    <img src="youtube-cover.jpg" alt="YouTube Channel Cover" class="portfolio-img" onerror="this.src='https://via.placeholder.com/400x200/1E293B/60A5FA?text=YouTube+Channel'">
+                    <div class="portfolio-content">
+                        <div>
+                            <h3>EdTech & Video</h3>
+                            <p style="color: #fff; font-weight: 500; margin-bottom: 0.5rem;">YouTube: @SeerahMoments</p>
+                            <p>AI-generated educational content and digital storytelling.</p>
+                        </div>
+                        <a href="http://www.youtube.com/@SeerahMoments" target="_blank" class="btn" style="width: 100%;">Visit Channel</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Professional Journey -->
+        <section>
+            <h2 class="section-title">Professional <span>Journey</span></h2>
+            
+            <div class="journey-grid-top">
+                <div class="journey-card">
+                    <h4>Training Section Head |<br>GoChat 247</h4>
+                    <p>Managed performance gaps, coaching, and strategic alignment with global client requirements.</p>
+                </div>
+                <div class="journey-card">
+                    <h4>Training Supervisor |<br>Ulemt</h4>
+                    <p>Managed performance gaps, coaching, and strategic alignment with global client requirements.</p>
+                </div>
+                <div class="journey-card">
+                    <h4>Senior Training & Development |<br>e& CX Solutions</h4>
+                    <p>Led a team of 14 trainers, achieving top-tier NPS and AHT metrics.</p>
+                </div>
+            </div>
+            
+            <div class="journey-grid-bottom">
+                <div class="journey-card">
+                    <h4>Telesales Training Specialist | Raya Contact Center</h4>
+                    <p>Trained and mentored 2,000+ professionals, designing curriculum that increased sales conversion rates.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Let's Connect -->
+        <section id="contact" style="border-bottom: none; text-align: center; padding-bottom: 8rem;">
+            <h2 class="section-title">Let's <span>Connect</span></h2>
+            <p class="section-subtitle">Ready to modernize your training ecosystem? Reach out directly.</p>
+            
+            <div class="contact-links">
+                <a href="https://abdelhayfahmy.github.io/AFMasteryAcademy/" target="_blank" class="btn btn-primary">🎓 AF Mastery Academy</a>
+                <a href="https://www.linkedin.com/in/abdelhayfahmy" target="_blank" class="btn">💻 LinkedIn</a>
+                <a href="https://github.com/abdelhayfahmy" target="_blank" class="btn">📂 GitHub</a>
+                <a href="mailto:abdelhay.mamdouh@gmail.com" target="_blank" class="btn">📧 Email Me</a>
+                <a href="https://wa.me/201272331066" target="_blank" class="btn">📱 WhatsApp</a>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
