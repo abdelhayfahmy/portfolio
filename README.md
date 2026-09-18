@@ -1,1 +1,19 @@
-# Instructor-portfolio
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- هذا السطر يقوم بالتحويل الفوري خلال 0 ثانية إلى رابط جاما -->
+    <meta http-equiv="refresh" content="0; url=https://gamma.app/docs/vayn3uaycnvaf7g">
+    
+    <!-- هذا السطر كود جافاسكريبت احتياطي لضمان التحويل في كل المتصفحات -->
+    <script type="text/javascript">
+        window.location.href = "https://gamma.app/docs/Abdelhay-Fahmy-vayn3uaycnvaf7g"
+    </script>
+    
+    <title>Abdelhay Fahmy - L&D Strategy Leader</title>
+</head>
+<body>
+    <!-- رسالة تظهر فقط إذا كان متصفح الزائر يمنع التحويل التلقائي -->
+    <p>If you are not redirected automatically, please <a href="https://gamma.app/docs/vayn3uaycnvaf7g">click here to visit my portfolio</a>.</p>
+</body>
+</html>
